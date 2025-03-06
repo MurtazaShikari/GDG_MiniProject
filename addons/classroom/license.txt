@@ -1,0 +1,8 @@
+Model Information:
+* title:	Classroom
+* source:	https://sketchfab.com/3d-models/classroom-9e5c6ed5a303428fae9252f8fbbeaca8
+* author:	stylo0 (https://sketchfab.com/stylo0)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
