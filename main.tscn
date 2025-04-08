@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://devhxmp16pok4"]
+[gd_scene load_steps=12 format=3 uid="uid://devhxmp16pok4"]
 
 [ext_resource type="PackedScene" uid="uid://bt2ew2gl53ing" path="res://addons/classroom/scene.gltf" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cg53ep02g5qq3" path="res://main.gd" id="1_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cim1yx31ari2d" path="res://addons/computer_classroom/scene.gltf" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ibp5w0hwaomk" path="res://addons/office/scene.gltf" id="4_7mycd"]
@@ -8,9 +9,11 @@
 [ext_resource type="Script" uid="uid://oqvjg1wfktqa" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://xh3cn4q4b31g" path="res://addons/art_room/scene.gltf" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://dewb6rcoif0gd" path="res://addons/chemestry_lab_classroom/scene.gltf" id="8_4c57u"]
+[ext_resource type="Script" uid="uid://c8x7f75e6ppfd" path="res://mesh_instance_3d.gd" id="9_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cfcm5nxlr3pc2" path="res://addons/cafeteria/scene.gltf" id="9_efxa6"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_4c57u")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 0, 3.2)
@@ -111,6 +114,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7486e-07, -0.35, -3.95556)
 operation = 2
 size = Vector3(1, 2.5, 1.6)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ArtRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.555556, 1.4, -1.55556)
+script = ExtResource("9_dg77c")
+
+[node name="ClueLabel3D" type="Label3D" parent="ArtRoom/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+visible = false
+text = "Even the best code breaks when it’s hungry.
+Feed your logic next."
+
 [node name="ChemistryLab" parent="." instance=ExtResource("8_4c57u")]
 transform = Transform3D(1.31134e-07, -8.74228e-08, 0.9, 1.14641e-14, 1, 7.86805e-08, -1, 0, 1.18021e-07, 5, 5.3, -5.8)
 
@@ -127,6 +140,6 @@ size = Vector3(1.9, 2.8, 1.2)
 [node name="Cafeteria" parent="." instance=ExtResource("9_efxa6")]
 transform = Transform3D(-4.72083e-08, 0, -1.65, 0, 1, 0, 1.08, 0, -7.21238e-08, 1.8, 5.3, 10.2)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Cafeteria"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Cafeteria" groups=["clue_object"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -1.77636e-15, 0, 1, -1.1, 1.45, -4.71364)
 size = Vector3(9.8, 3.9, 0.3)
